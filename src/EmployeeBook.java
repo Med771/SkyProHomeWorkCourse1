@@ -204,7 +204,7 @@ public class EmployeeBook {
     }
 
     // Index methods
-    public void IndexSalaries(int percent) {
+    public void indexSalaries(int percent) {
         for (int i = 0; i < length; i++) {
             if (employees[i] != null) {
                 employees[i].setSalary(employees[i].getSalary() * (100 + percent) / 100);
@@ -212,7 +212,7 @@ public class EmployeeBook {
         }
     }
 
-    public void IndexSalariesByDepartment(int percent, int department) {
+    public void indexSalariesByDepartment(int percent, int department) {
         for (int i = 0; i < length; i++) {
             if (employees[i] != null && employees[i].getDepartment() == department) {
                 employees[i].setSalary(employees[i].getSalary() * (100 + percent) / 100);
@@ -227,18 +227,5 @@ public class EmployeeBook {
                 "employees = " + Arrays.toString(employees) +
                 "\nlength = " + length +
                 '\n'+ '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        EmployeeBook that = (EmployeeBook) o;
-        return length == that.length && Objects.deepEquals(employees, that.employees);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(Arrays.hashCode(employees), length);
     }
 }
